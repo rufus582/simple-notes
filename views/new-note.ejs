@@ -1,0 +1,35 @@
+<%- include('partials/header.ejs') %>
+
+  <% if (edit) { %>
+  <!-- EDIT NOTE -->
+  <form action=<%= "/edit/" + notes[index]._id %>  method="post">
+    <h2 class="mb-2">Edit Note</h2>
+    <div class="form-floating mb-3">
+      <input type="text" name="name" id="name" class="form-control more-curve" placeholder="Note title" value="<%= notes[index].name %>" >
+      <label for="name">Title</label>
+    </div>
+    <div class="form-floating mb-3">
+      <textarea class="form-control more-curve" name="content" id="content" placeholder="Note content"
+        style="height: 500px"><%= notes[index].content %></textarea>
+      <label for="content">Content</label>
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg mb-5 more-curve">Save</button>
+  </form>
+  <% } else {%>
+  <!-- NEW NOTE -->
+  <form action="/new" method="post">
+    <h2 class="mb-2">New Note</h2>
+    <div class="form-floating mb-3">
+      <input type="text" name="name" id="name" class="form-control more-curve" placeholder="Note title">
+      <label for="name">Title</label>
+    </div>
+    <div class="form-floating mb-3">
+      <textarea class="form-control more-curve" name="content" id="content" placeholder="Note content"
+        style="height: 500px"></textarea>
+      <label for="content">Content</label>
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg mb-5 more-curve">Save</button>
+  </form>
+  <% } %>
+
+  <%- include('partials/footer.ejs') %>
