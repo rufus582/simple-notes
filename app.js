@@ -6,4 +6,5 @@ app.set("view engine", 'ejs')
 app.use("/", routes)
 app.use(express.static("public"))
 
-app.listen(3000, () => console.log("App started"))
+//app.listen(3000, () => console.log("App started"))
+module.exports = app
